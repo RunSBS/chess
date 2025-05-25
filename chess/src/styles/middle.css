@@ -1,0 +1,6 @@
+.home-container{
+    background-image: url("back-image.png");
+    background-position: center;
+    width:100vw;
+    height:100vh;
+}

@@ -1,0 +1,58 @@
+.carousel-outer{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+}
+.carousel-wrapper{
+    position: relative;
+    width:1280px;
+    height:500px;
+    margin: 0 auto;
+    overflow: visible;
+}
+.carousel-track{
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.5s ease;
+    gap:24px;
+}
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: green;
+}
+.slide{
+    display:block;
+    min-width:198px;
+    height:240px;
+}
+.active{
+    display:block;
+    min-width:640px;
+    height:386px;
+}
+.prev{
+
+}
+.next{
+
+}
+.bef{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:30%;
+}
+.aft{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right:30%;
+}
+.indicator{
+    
+}
