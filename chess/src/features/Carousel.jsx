@@ -4,37 +4,28 @@ const Carousel = () =>{
     const [currentBox,setCurrentBox] = useState(0);
     const arr = [0,1,2,3,4,5,6,7,8,9];
     const colors = ['red','blue','green'];
-    // useEffect(()=>{
-    //     const timer = setTimeout(()=>{
-    //         setCurrentBox((prev)=>(prev+1) % arr.length);
-    //     },5000)
-    //     return ()=>{
-    //         clearTimeout(timer);
-    //     };
-    // },[currentBox]);
+    useEffect(()=>{
+        const timer = setTimeout(()=>{
+            setCurrentBox((prev)=> (prev+1) % arr.length );
+        },5000)
+        return ()=>{
+            clearTimeout(timer);
+        }
+    },[currentBox]);
+    
     const STEP = 198 + 24; // 슬라이드 너비 + gap
     return(
-        // 배열의 인덱스와 일치? => active클래스
-        // 배열의 인덱스와 다름? => slide 클래스
-        // 다르지만 배열 인덱스 -1 인경우 => prev 클래스
-        // 다르지만 배열 인덱스 +1 인경우 => next 클래스
         <div className='carousel-outer'>
             <div className='carousel-wrapper'>
                 <div style={{color:"white",fontSize:"50px",textAlign:"center"}}>
                     색깔 케러셀
                 </div>
-                <div
-          className="carousel-track"
-          style={{
-            transform: `translateX(calc(222px - ${currentBox * 222}px)`
-          }}
-        >
+                <div className="carousel-track" style={{ transform: `translateX(calc(222px - ${currentBox * 222}px)`}}>
                     {arr.map((a,i)=>{
                         let className = 'slide';
                         if( i === currentBox ) className += ' active';
                         else if( i === (currentBox -1 + arr.length)% arr.length) className += ' prev';
                         else if( i === (currentBox +1) % arr.length) className += ' next';
-
                         return(
                             <div key ={i}className={className + " " + colors[i % colors.length]}>
                                 
