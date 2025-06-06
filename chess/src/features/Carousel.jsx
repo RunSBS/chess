@@ -4,6 +4,17 @@ const Carousel = () =>{
     const [currentBox,setCurrentBox] = useState(0);
     const arr = [0,1,2,3,4,5,6,7,8,9];
     const colors = ['red','blue','green'];
+    useEffect(() => {
+  const handleWheel = (e) => {
+    console.log("휠 감지됨!", e.deltaY);  // e.deltaY: 휠을 얼마나 돌렸는지
+  };
+
+  window.addEventListener("wheel", handleWheel);
+
+  return () => {
+    window.removeEventListener("wheel", handleWheel);
+  };
+}, []);
     useEffect(()=>{
         const timer = setTimeout(()=>{
             setCurrentBox((prev)=> (prev+1) % arr.length );
